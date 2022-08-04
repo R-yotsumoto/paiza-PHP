@@ -1,0 +1,30 @@
+<?php
+    // まず日数を出す
+    $input_line = trim(fgets(STDIN));
+    // 空の変数を作る
+    $startPrice = [];
+    $endPrice = [];
+    $hightPrice = [];
+    $minPrice = [];
+    
+    // この中で全ての書き出しと、縦の配列に組み替える
+    for ($i = 1; $i <= $input_line; $i++) {
+        $input = trim(fgets(STDIN));
+        $dayPrices = explode(' ', $input);
+        $startPrice[] = $dayPrices[0];
+        $endPrice[] = $dayPrices[1];
+        $hightPrice[] = $dayPrices[2];
+        $minPrice[] = $dayPrices[3];
+    }
+    // 呼び出しと並び順
+    echo $startPrice[0]." ".$endPrice[count($endPrice)-1]." ".max($hightPrice)." ".min($minPrice);
+    
+    // もっと簡略化？したもの
+    // $result = [];
+    // $result[] = $startPrice[0];
+    // $result[] = $endPrice[count($endPrice) - 1];
+    // $result[] = max($hightPrice);
+    // $result[] = min($minPrice);
+
+    // echo implode(' ', result);
+?>
