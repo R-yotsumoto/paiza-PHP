@@ -1,0 +1,31 @@
+<?php
+​
+const PENALTY = 5;
+function getStdin(): string
+{
+    return trim(fgets(STDIN));
+}
+​
+[$count, $passingScore] = explode(' ', getStdin());
+​
+$studentTable = [];
+$passedStudent = [];
+​
+for ($i = 0; $i < $count; $i++) {
+    $studentTable[] = explode(' ', getStdin());
+}
+​
+foreach ($studentTable as $studentNumber => $studentInfo) {
+    $result = $studentInfo[0] - ($studentInfo[1] * PENALTY);
+​
+    if ($result < 0) {
+        $result = 0;
+    }
+​
+    if ($result < $passingScore) {
+        continue;
+    }
+    $passedStudent[] = $studentNumber + 1;
+}
+​
+echo implode(PHP_EOL, $passedStudent), PHP_EOL;
