@@ -1,0 +1,40 @@
+# paiza-PHP
+<?php
+    $people = trim(fgets(STDIN));
+    
+    const ENDLINE = 160;
+    const LINE = 350;
+    $all = [];
+    $count = [];
+    $stu = [];
+    $pass = [];
+    $all;
+    
+    for ($i = 0; $i < $people; $i++) {
+        $stu[] = explode(' ',trim(fgets(STDIN)));
+    }
+    
+    for ($i = 0; $i < $people; $i++) {
+        $all = $stu[$i][1] + $stu[$i][2] + $stu[$i][3] + $stu[$i][4] + $stu[$i][5];
+        if ($all >= LINE) {
+        $count[] = $stu[$i];
+        };
+    }
+    
+    for ($i = 0; $i < count($count); $i++) {
+        if ($count[$i][0]  == "s") {
+            $sci = $count[$i][2] + $count[$i][3];
+                if($sci >= ENDLINE){
+                $pass[] = $count[$i];
+            }
+        }elseif ($count[$i][0]  == "l") {
+            $lan = $count[$i][4] + $count[$i][5];
+                if($lan >= ENDLINE){
+                $pass[] = $count[$i];
+            }
+        }
+    }
+    
+    echo(count($pass));
+
+?>
