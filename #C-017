@@ -1,0 +1,24 @@
+# paiza-PHP
+<?php
+    $line = explode(' ',trim(fgets(STDIN)));
+    $roll = trim(fgets(STDIN));
+    
+    for ($i = 0; $i < $roll; $i++) {
+        $card[] = explode(' ',trim(fgets(STDIN)));
+    }
+    
+    for ($i = 0; $i < $roll; $i++) {
+        if ($card[$i][0] < $line[0]) {
+            echo("High")."\n";
+        }elseif ($card[$i][0] > $line[0]) {
+            echo("Low")."\n";
+        }elseif ($card[$i][0] == $line[0]) {
+            if ($card[$i][1] > $line[1]) {
+                echo("High")."\n";
+            }elseif ($card[$i][1] < $line[1]) {
+                echo("Low")."\n";
+            }
+        }
+    }
+    
+?>
