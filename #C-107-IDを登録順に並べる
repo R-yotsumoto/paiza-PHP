@@ -1,0 +1,20 @@
+# paiza-PHP
+<?php
+    $people = fgets(STDIN);
+    $useId = [];
+    $order = [];
+    $key = [];
+    
+    for ($i = 0; $i < $people; $i++) {
+         $useId[] = fgets(STDIN);
+    }
+    
+     $Divide = preg_replace("/[^0-9^]/",'',$useId);
+     asort($Divide);
+     
+     $order[] = $Divide;
+     
+    foreach ($Divide as $value => $order) {
+        echo($useId[$value]);
+    }
+?>
