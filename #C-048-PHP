@@ -1,0 +1,14 @@
+# paiza-PHP
+<?php
+    $input_line = explode(' ',trim(fgets(STDIN)));
+    $coffee = $input_line[0];
+    $discount = 1 - ($input_line[1] / 100);
+    $all = 0;
+
+    for ($i = $coffee; $i > 0; $i = floor($i * $discount)) {
+         $all = $all + $i;
+    }
+    
+    echo $all;
+    PHP_EOL;
+?>
