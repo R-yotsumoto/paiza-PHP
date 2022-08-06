@@ -1,0 +1,12 @@
+# paiza-PHP
+<?php
+    $answer = explode(' ',fgets(STDIN));
+    $num = fgets(STDIN);
+    $lottery = [];
+    
+    for ($i = 0; $i < 6; $i++) {
+        $lottery[] = explode(' ',fgets(STDIN));
+    }
+    for ($i = 0; $i < $num; $i++) {
+        echo(count(array_intersect($answer,$lottery[$i])))."\n";
+    }
